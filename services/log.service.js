@@ -19,4 +19,13 @@ const printHelp = () => {
     );
 };
 
-export {printError, printSuccess, printHelp};
+const printWeather = (res) => {
+    console.log(
+        dedent`${chalk.bgYellow(' WEATHER ')} Погода в городе ${res.location.name}
+        ${res.current.condition.text}
+        Температура: ${res.current.temp_c} (ощущается как ${res.current.feelslike_c})
+        Влажность: ${res.current.humidity}%`
+    );
+};
+
+export {printError, printSuccess, printHelp, printWeather};
